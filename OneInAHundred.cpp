@@ -2,12 +2,12 @@
 #include <cstdlib>
 #include <ctime>
 #include <iomanip>
-#include<iostream> 
-#include<list>
-#include<vector>
-#include<random>
-#include<map>
-#include<string>
+#include <iostream> 
+#include <list>
+#include <vector>
+#include <random>
+#include <map>
+#include <string>
 using namespace std;
 
 
@@ -27,7 +27,7 @@ bool test_number(int a,int choice,int numrange[]){ //function used to update num
         return false;
     }}
 
-bool one_in_a_hundred(string player1, string player2){//MiniGame One In A Hundred
+int one_in_a_hundred(string player1, string player2){//MiniGame One In A Hundred
     int turn = 0;
     bool p1turn = true;
     int choice = 0;
@@ -100,3 +100,8 @@ bool one_in_a_hundred(string player1, string player2){//MiniGame One In A Hundre
         
 
    }
+
+int main(){
+    string player1, player2;
+    one_in_a_hundred( player1,  player2);
+}
