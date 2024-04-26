@@ -27,7 +27,7 @@ bool test_number(int a,int choice,int numrange[]){ //function used to update num
         return false;
     }}
 
-int one_in_a_hundred(string player1, string player2){//MiniGame One In A Hundred
+bool one_in_a_hundred(string player1, string player2){//MiniGame One In A Hundred
     int turn = 0;
     bool p1turn = true;
     int choice = 0;
@@ -100,8 +100,3 @@ int one_in_a_hundred(string player1, string player2){//MiniGame One In A Hundred
         
 
    }
-
-int main(){
-    string player1, player2;
-    one_in_a_hundred( player1,  player2);
-}
