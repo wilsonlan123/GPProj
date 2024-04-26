@@ -1,0 +1,28 @@
+cd "/Users/dickso/Downloads/monopolypj-main/" && g++ idk.cpp -o idk && "/Users/dickso/Downloads/monopolypj-main/"idk
+dickso@DickydeAir monopolypj-main % cd "/Users/dickso/Downloads/monopolypj-main/" && g++ idk.cpp -o idk && "/Users/dickso/Downloads/monopolypj-main/"idk
+idk.cpp:5:51: error: a space is required between consecutive right angle brackets (use '> >')
+void printBoard(const std::vector<std::vector<char>>& board) {
+                                                  ^~
+                                                  > >
+idk.cpp:18:49: error: a space is required between consecutive right angle brackets (use '> >')
+bool checkWin(const std::vector<std::vector<char>>& board, char player) {
+                                                ^~
+                                                > >
+idk.cpp:33:49: error: a space is required between consecutive right angle brackets (use '> >')
+bool checkTie(const std::vector<std::vector<char>>& board) {
+                                                ^~
+                                                > >
+idk.cpp:34:16: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+    for (const auto& row : board) {
+               ^
+idk.cpp:34:26: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+    for (const auto& row : board) {
+                         ^
+idk.cpp:35:24: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for (char cell : row) {
+                       ^
+idk.cpp:45:33: error: a space is required between consecutive right angle brackets (use '> >')
+    std::vector<std::vector<char>> board(3, std::vector<char>(3, ' '));
+                                ^~
+                                > >
+3 warnings and 4 errors generated
