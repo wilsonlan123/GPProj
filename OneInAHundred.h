@@ -4,6 +4,6 @@
 #include<list>
 using namespace std;
 
-bool test_number(int ,int ,int numrange[]);
-bool one_in_a_hundred(string, string);
+bool update_range(int ,int ,int numrange[]);
+bool Guess_Your_Luck(string, string);
 
