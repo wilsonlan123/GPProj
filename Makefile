@@ -1,4 +1,4 @@
-DiceRolling.o: NumMonster.cpp NumMonster.h
+NumMonster.o: NumMonster.cpp NumMonster.h
 	g++ -c $<
 
 OneInAHundred.o: OneInAHundred.cpp OneInAHundred.h
