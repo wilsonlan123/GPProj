@@ -1,18 +1,18 @@
 NumMonster.o: NumMonster.cpp NumMonster.h
 	g++ -c $<
 
-OneInAHundred.o: OneInAHundred.cpp OneInAHundred.h
+OneInAHundred.o: Guess_Your_Luck.cpp Guess_Your_Luck.h
 	g++ -c $<
 
 tictactioe.0: tictactoe.cpp tictactoe.h
 	g++ -c $<
 
-main.o: main.cpp OneInAHundred.h NumMonster.h tictactoe.h
+main.o: main.cpp Guess_Your_Luck.h NumMonster.h tictactoe.h
 	g++ -c $<
 
-main: NumMonster.o OneInAHundred.o tictactoe.o
+main: NumMonster.o Guess_Your_Luck.o tictactoe.o
 	g++ $^ -o $@
 	
 clean: 
-	rm -f main main.o OneInAHundred.o NumMonster.o tictactioe.o
+	rm -f main main.o Guess_Your_Luck.o NumMonster.o tictactioe.o
 .PHONY: clean 
