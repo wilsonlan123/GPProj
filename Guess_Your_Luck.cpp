@@ -29,6 +29,7 @@ bool Guess_Your_Luck(string player1, string player2) {
     bool p1turn = true;
     int guess = 0;
     string players[] = {player1, player2};
+    srang(time(0));
     int target = rand() % 100;
     int* range = new int[2];
     range[0] = 0;
