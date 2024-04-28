@@ -1,16 +1,18 @@
-DiceRolling.o: DiceRolling.cpp DiceRolling.h
-	g++ -c $<
-OneInAHundred.o: OneInAHundred.cpp OneInAHundred.h
-	g++ -c $<
-hangman.o: hangman.cpp hangman.h
-	g++ -c $<
-drawnearn.o: drawnearn.cpp drawnearn.h
+DiceRolling.o: NumMonster.cpp NumMonster.h
 	g++ -c $<
 
-main.o: main.cpp OneInAHundred.h DiceRolling.h hangman.h drawnearn.h 
+OneInAHundred.o: OneInAHundred.cpp OneInAHundred.h
 	g++ -c $<
-main: DiceRolling.o OneInAHundred.o hangman.o drawnearn.o main.o
+
+tictactioe.0: tictactoe.cpp tictactoe.h
+	g++ -c $<
+
+main.o: main.cpp OneInAHundred.h NumMonster.h tictactoe.h
+	g++ -c $<
+
+main: NumMonster.o OneInAHundred.o tictactoe.o
 	g++ $^ -o $@
+	
 clean: 
-	rm -f main main.o OneInAHundred.o DiceRolling.o hangman.o drawnearn.o
+	rm -f main main.o OneInAHundred.o NumMonster.o tictactioe.o
 .PHONY: clean 
