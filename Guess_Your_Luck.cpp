@@ -33,10 +33,12 @@ bool Guess_Your_Luck(string player1, string player2) {
     int* range = new int[2];
     range[0] = 0;
     range[1] = 100;
+    cout << "========================================================================================" << endl;
     cout << "Welcome to the game of <Guess_Your_Luck>." << endl;
     cout << "In this game, Players are taking turns to guess the <Golden Number>." << endl;
     cout << "The range of the number is initialized between [0,100], and it will be updated according to your guesses." << endl;
     cout << "WISH YOU LUCK!" << endl;
+    cout << "========================================================================================" << endl;
     cout << "Guess a number between " << range[0] << " to " << range[1] << endl;
 
     while (true) {
@@ -75,10 +77,10 @@ bool Guess_Your_Luck(string player1, string player2) {
             break; //exit the guessing period
         }
         
-
+    cout << "========================================================================================" << endl;
     cout << "Winner is ..." << players[(turn + 1) % 2] << endl;
     delete[] range;
-        cout << "Congratulations! " << players[(turn+1) % 2] << " Has better luck than " << players[(turn%2)] << endl;
-        return true;
+    cout << "Congratulations! " << players[(turn+1) % 2] << " Has better luck than " << players[(turn%2)] << endl;
+    cout << "========================================================================================" << endl;
+    return true;
 }
-
