@@ -34,3 +34,33 @@ int main() {
         std::cin >> choice;
 
 
+        if (std::cin.fail()) {
+            std::cin.clear();  // Clear error flag
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Ignore wrong input
+            std::cout << "Invalid input. Please enter a number.\n";
+            continue;
+        }
+
+        switch (choice) {
+            case 1:
+                playGameOne();
+                break;
+            case 2:
+                playGameTwo();
+                break;
+            case 3:
+                playGameThree();
+                break;
+            case 4:
+                std::cout << "Exiting the game menu.\n";
+                return 0;
+            default:
+                std::cout << "Invalid choice. Please select a valid option from the menu.\n";
+                break;
+        }
+    }
+
+    return 0;
+}
+
+
