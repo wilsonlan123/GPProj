@@ -3,11 +3,24 @@
 #include <vector>
 #include <random>
 #include <string>
+#include <fstream>
+#include "counting.h"
 using namespace std;
+
+void counting(int count){ //function for record which player win the game
+    ofstream fout;
+    fout.open("counting.txt", ios::app);
+    if (fout.fail()) {
+        cout << "Error in file opening!" << endl;
+        exit(1);
+        }
+    fout << count << endl;
+    fout.close();
+}
 
 void genmonster(int m, vector<int>& mlist) { //function for generating the random monster
     mlist.clear();
-    random_device rd; //to make sure the random number generated is different every time.
+    random_device rd; //to make sure the random number generated is different every time
     mt19937 gen(rd()); 
     uniform_int_distribution<int> dis(1, 9);
     for (int i = 0; i < m; i++) {
@@ -28,7 +41,7 @@ int killmonster(int skillnum, vector<int> monlst, int m) { //function to check w
     return duplicate;
 }
 
-void playersturn(int skillnum, string player, int &m, vector<int> mlist){ //function that let player input their skill number and report if the monster can be killed.
+void playersturn(int skillnum, string player, int &m, vector<int> mlist){ //function that let player input their skill number and report if the monster can be killed
     int duplicate = 0;
     while (true) {
             cout << player << "'s turn!" << endl;
@@ -83,19 +96,21 @@ int eliminate(string player1, string player2){// Mini game: Eliminate the numebr
     if (m1 <= 0) {
         cout << " ██████╗ ██████╗ ███╗   ██╗ ██████╗ ██████╗  █████╗ ████████╗██╗   ██╗██╗      █████╗ ████████╗██╗ ██████╗ ███╗   ██╗\n██╔════╝██╔═══██╗████╗  ██║██╔════╝ ██╔══██╗██╔══██╗╚══██╔══╝██║   ██║██║     ██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║\n██║     ██║   ██║██╔██╗ ██║██║  ███╗██████╔╝███████║   ██║   ██║   ██║██║     ███████║   ██║   ██║██║   ██║██╔██╗ ██║\n██║     ██║   ██║██║╚██╗██║██║   ██║██╔══██╗██╔══██║   ██║   ██║   ██║██║     ██╔══██║   ██║   ██║██║   ██║██║╚██╗██║\n╚██████╗╚██████╔╝██║ ╚████║╚██████╔╝██║  ██║██║  ██║   ██║   ╚██████╔╝███████╗██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║\n ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝" << endl;
         cout << "Winner is " << player1 << endl;
-        return true;
+        int count = 1;
+        counting(count);
         break;
-        }
+    }
     else if (m2 <= 0) {
         cout << " ██████╗ ██████╗ ███╗   ██╗ ██████╗ ██████╗  █████╗ ████████╗██╗   ██╗██╗      █████╗ ████████╗██╗ ██████╗ ███╗   ██╗\n██╔════╝██╔═══██╗████╗  ██║██╔════╝ ██╔══██╗██╔══██╗╚══██╔══╝██║   ██║██║     ██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║\n██║     ██║   ██║██╔██╗ ██║██║  ███╗██████╔╝███████║   ██║   ██║   ██║██║     ███████║   ██║   ██║██║   ██║██╔██╗ ██║\n██║     ██║   ██║██║╚██╗██║██║   ██║██╔══██╗██╔══██║   ██║   ██║   ██║██║     ██╔══██║   ██║   ██║██║   ██║██║╚██╗██║\n╚██████╗╚██████╔╝██║ ╚████║╚██████╔╝██║  ██║██║  ██║   ██║   ╚██████╔╝███████╗██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║\n ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝" << endl;
         cout << "Winner is " << player2 << endl;
-        return false;
+        int count = 2;
+        counting(count);
         break;
         }
     }
 }
 
-int main(){
+int main(){ //function to test whether the game can run
     string player1 = "Player 1", player2 = "Player 2";
     eliminate( player1,  player2);
 }
