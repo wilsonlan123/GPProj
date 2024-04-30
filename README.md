@@ -1,8 +1,8 @@
 ==================================================================================
 **Team member:**
 1. Ho Kin Sang, UID = 3036080006
-2. s
-3. s
+2. So Ching Hong, UID = 3036068022
+3. Lan Lik Wai, UID = 3036068931
 ----------------------------------------------------------------------------------
 **Description of the game**
 This is a 2-player mini-game party, where you and your friend can compete in 3 games, including NumberMonster, Guess_Your_Luck, and TicTacToe. Whoever wins the most, wins.
