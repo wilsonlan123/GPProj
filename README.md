@@ -18,3 +18,14 @@ o File input/output (e.g., for loading/saving game status)
 o Program codes in multiple files (recall separate compilation)
 o Proper indentation and naming styles
 o In-code documentation
+
+[
+=======================================================================================
+**Team member:**
+1. Ho Kin Sang, UID = 3036080006
+2. s
+3. s
+---------------------------------------------------------------------------------------
+**Description of the game**
+This is a 2-player mini-game party, where you and your friend can compete in 3 games, including NumberMonster, Guess_Your_Luck, and TicTacToe. Whoever wins the most, wins.
+**NumberMonster**
