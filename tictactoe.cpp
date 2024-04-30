@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <limits>
-#include <fstream>
 
 void printBoard(const std::vector<std::vector<char> >& board) {
     std::cout << "\n";
@@ -59,25 +58,8 @@ void playGame() {
         }
         board[row - 1][col - 1] = currentPlayer;
         if (checkWin(board, currentPlayer)) {
-            int win;
-            std::ofstream fout;
-            fout.open("counting.txt", std::ios::app);
-            if (fout.fail()) {
-                std::cout << "Error in file opening!" << std::endl;
-                exit(1);
-                }
             printBoard(board);
             std::cout << "Player " << currentPlayer << " wins!\n";
-            if (currentPlayer == 'X'){
-            win = 1;
-            fout << win << std::endl;
-            fout.close();
-            }
-            else{
-            win = 2;
-            fout << win << std::endl;
-            fout.close();  
-            }
             break;
         }
         if (checkTie(board)) {
@@ -89,7 +71,3 @@ void playGame() {
     }
 }
 
-int main() {
-    playGame();
-    return 0;
-}
