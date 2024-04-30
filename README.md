@@ -4,7 +4,7 @@
 2. s
 3. s
 ----------------------------------------------------------------------------------
-[Description of the game]
+**Description of the game**
 This is a 2-player mini-game party, where you and your friend can compete in 3 games, including NumberMonster, Guess_Your_Luck, and TicTacToe. Whoever wins the most, wins.
 1. **NumberMonster** 
 In this game,
