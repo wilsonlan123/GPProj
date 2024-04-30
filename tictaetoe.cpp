@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <limits>
 
-void printBoard(const std::vector<std::vector<char>>& board) {
+void printBoard(const std::vector<std::vector<char> >& board) {
     std::cout << "\n";
     for (int i = 0; i < board.size(); ++i) {
         for (int j = 0; j < board[i].size(); ++j) {
@@ -15,7 +16,7 @@ void printBoard(const std::vector<std::vector<char>>& board) {
     std::cout << "\n";
 }
 
-bool checkWin(const std::vector<std::vector<char>>& board, char player) {
+bool checkWin(const std::vector<std::vector<char> >& board, char player) {
     // Check rows, columns, and diagonals for a win
     for (int i = 0; i < 3; ++i) {
         if ((board[i][0] == player && board[i][1] == player && board[i][2] == player) ||
@@ -30,10 +31,10 @@ bool checkWin(const std::vector<std::vector<char>>& board, char player) {
     return false;
 }
 
-bool checkTie(const std::vector<std::vector<char>>& board) {
-    for (const auto& row : board) {
-        for (char cell : row) {
-            if (cell == ' ') {
+bool checkTie(const std::vector<std::vector<char> >& board) {
+    for (int i = 0; i < board.size(); ++i) {
+        for (int j = 0; j < board[i].size(); ++j) {
+            if (board[i][j] == ' ') {
                 return false;
             }
         }
@@ -42,14 +43,16 @@ bool checkTie(const std::vector<std::vector<char>>& board) {
 }
 
 void playGame() {
-    std::vector<std::vector<char>> board(3, std::vector<char>(3, ' '));
+    std::vector<std::vector<char> > board(3, std::vector<char>(3, ' '));
     char currentPlayer = 'X';
     int row, col;
     while (true) {
         printBoard(board);
         std::cout << "Player " << currentPlayer << ", enter row and column to place " << currentPlayer << ": ";
         std::cin >> row >> col;
-        if (row < 1 || row > 3 || col < 1 || col > 3 || board[row - 1][col - 1] != ' ') {
+        if (std::cin.fail() || row < 1 || row > 3 || col < 1 || col > 3 || board[row - 1][col - 1] != ' ') {
+            std::cin.clear(); // Clear error state
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore wrong input
             std::cout << "Invalid move. Try again.\n";
             continue;
         }
