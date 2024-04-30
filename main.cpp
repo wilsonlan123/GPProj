@@ -1,66 +1,46 @@
 #include <iostream>
 #include <string>
+#include <fstream>
+#include "NumMonster.h"
+#include "Guess_Your_Luck.h"
+#include "tictactoe.h"
+using namespace std;
 
-// Function declarations for the games
-void playGameOne();  // Assuming this is the function for the first game
-void playGameTwo();  // Assuming this is the function for the second game
-void playGameThree();  // Function for the Tic-Tac-Toe game
-
-void playGameOne() {
-    // Placeholder: Implement or call the relevant function for game one
-    std::cout << "Playing Game One...\n";
-}
-
-void playGameTwo() {
-    // Placeholder: Implement or call the relevant function for game two
-    std::cout << "Playing Game Two...\n";
-}
-
-void playGameThree() {
-    // Placeholder: Implement or call the relevant function for Tic-Tac-Toe
-    std::cout << "Playing Tic-Tac-Toe...\n";
-}
 
 int main() {
-    int choice = 0;
-
-    while (true) {
-        std::cout << "\n*** Game Menu ***\n";
-        std::cout << "1. Play Game One\n";
-        std::cout << "2. Play Game Two\n";
-        std::cout << "3. Play Tic-Tac-Toe\n";
-        std::cout << "4. Exit\n";
-        std::cout << "Enter your choice: ";
-        std::cin >> choice;
-
-
-        if (std::cin.fail()) {
-            std::cin.clear();  // Clear error flag
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');  // Ignore wrong input
-            std::cout << "Invalid input. Please enter a number.\n";
-            continue;
-        }
-
-        switch (choice) {
-            case 1:
-                playGameOne();
-                break;
-            case 2:
-                playGameTwo();
-                break;
-            case 3:
-                playGameThree();
-                break;
-            case 4:
-                std::cout << "Exiting the game menu.\n";
-                return 0;
-            default:
-                std::cout << "Invalid choice. Please select a valid option from the menu.\n";
-                break;
+    string con;
+	string player1 = "Player 1", player2 = "Player 2";
+    cout << "Welcome to XXXXXXX" << endl;
+    cout << "This a game is for two player" << endl;
+    cout << "You will play three different games" << endl;
+    cout << "In each game, player who win will gain a mark" << endl;
+    cout << "After three games, who get the highest mark will win!!!" << endl;
+    cout << "Press enter to start the game";
+    eliminate(player1, player2);
+    cout << "Press enter to start the next game";
+    cin >> con;
+    Guess_Your_Luck(player1, player2);
+    cout << "Press enter to start the next game";
+    cin >> con;
+    playGame();
+    ifstream fin;
+    fin.open("counting.txt");
+    if ( fin.fail() ){
+        cout << "Error in file opening!"
+        << endl;
+        exit(1);
+    }
+    char win;
+    int count = 0;
+    while (fin.get(win)) {
+        if (win == '1') {
+            count++;
         }
     }
-
-    return 0;
+    if (count >= 2){
+        cout << "player1 " << "win!!!" << endl;
+    }
+    else{
+        cout << "player2 " << "win!!!" << endl;
+    }
 }
-
-
