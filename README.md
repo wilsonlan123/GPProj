@@ -34,5 +34,5 @@ This is a 2-player mini-game party, where you and your friend can compete in 3 g
 They are used to store game status, generate random goals, or read input files etc.
 ----------------------------------------------------------------------------------
 **Compilation and execution instructions**  
-1. .
+1. w
 ==================================================================================
